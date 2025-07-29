@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Primary SEO Meta Tags -->
+    <title>Contact Imayam Tours | Plan Your Trip to India</title>
+    <meta name="description" content="Contact Imayam Tours to plan your custom holiday in India. Get in touch via our form, phone, or email. Let's build your dream vacation today." />
+    <meta name="keywords" content="contact Imayam Tours, book a tour India, travel inquiry, India vacation planning, tourism contact India" />
+    <meta name="author" content="Imayam Tours" />
+    <link rel="canonical" href="https://www.imayamtours.com/contact.html" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph / Facebook Meta Tags -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.imayamtours.com/contact.html" />
+    <meta property="og:title" content="Contact Imayam Tours | Plan Your Trip to India" />
+    <meta property="og:description" content="Ready to explore India? Contact us to start planning your personalized tour package." />
+    <meta property="og:image" content="https://www.imayamtours.com/cassets/contact-hero.webp" /> <!-- Create a relevant image -->
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://www.imayamtours.com/contact.html" />
+    <meta name="twitter:title" content="Contact Imayam Tours | Plan Your Trip to India" />
+    <meta name="twitter:description" content="Ready to explore India? Contact us to start planning your personalized tour package." />
+    <meta name="twitter:image" content="https://www.imayamtours.com/cassets/contact-hero.webp" />
+
+    <!-- Favicon and Theme -->
+    <link rel="icon" href="cassets/logo.webp" type="image/webp" />
+    <link rel="apple-touch-icon" href="cassets/logo.webp" />
+    <meta name="theme-color" content="#F97316">
+
+    <!-- Styles and Fonts -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+
+    <script>
+      // Set theme on initial load
+      if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    </script>
+</head>
+<body class="bg-gray-50 text-gray-700 font-sans dark:bg-gray-900 dark:text-gray-300">
+
+    <!-- Header & Navbar -->
+    <header class="bg-white/80 backdrop-blur-md shadow-sm fixed top-0 left-0 right-0 z-50 dark:bg-gray-900/80">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-3">
+                <img src="cassets/logo.webp" alt="Imayam Tours Logo" class="h-14"/>
+                <span class="text-3xl font-bold text-gray-800 tracking-wider dark:text-white">Imayam</span>
+            </a>
+            <div class="hidden lg:flex items-center space-x-10">
+                <a href="index.html" class="text-gray-600 hover:text-orange-500 transition duration-300 text-lg dark:text-gray-300 dark:hover:text-orange-400">Home</a>
+                <a href="tours.html" class="text-gray-600 hover:text-orange-500 transition duration-300 text-lg dark:text-gray-300 dark:hover:text-orange-400">Tours</a>
+                <a href="contact.html" class="text-orange-500 font-semibold text-lg dark:text-orange-400">Contact</a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button id="theme-toggle" class="text-gray-600 dark:text-gray-300 hover:text-orange-500 dark:hover:text-orange-400 text-xl">
+                    <i class="fas fa-sun" id="theme-toggle-light-icon"></i>
+                    <i class="fas fa-moon hidden" id="theme-toggle-dark-icon"></i>
+                </button>
+                <a href="contact.html" class="hidden lg:block bg-orange-500 text-white px-8 py-3 rounded-full hover:bg-orange-600 transition duration-300 transform hover:scale-105">Book Now</a>
+                <button id="mobile-menu-button" class="lg:hidden text-2xl text-gray-700 dark:text-gray-300">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden px-6 pb-4">
+            <a href="index.html" class="block py-2 text-gray-600 dark:text-gray-300">Home</a>
+            <a href="tours.html" class="block py-2 text-gray-600 dark:text-gray-300">Tours</a>
+            <a href="contact.html" class="block py-2 text-orange-500 dark:text-orange-400 font-semibold">Contact</a>
+            <a href="contact.html" class="block mt-2 bg-orange-500 text-white px-6 py-2 rounded-full text-center">Book Now</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-20">
+        <!-- Contact Header -->
+        <section class="bg-gray-800 text-white py-32 dark:bg-gray-800">
+            <div class="container mx-auto px-6 text-center animate-fade-in">
+                <h1 class="text-5xl md:text-7xl font-bold mb-4">Get In Touch</h1>
+                <p class="text-lg md:text-xl text-gray-300">Have a question or want to book a trip? We'd love to hear from you.</p>
+            </div>
+        </section>
+
+        <!-- Contact Form & Details Section -->
+        <section class="py-24">
+            <div class="container mx-auto px-6">
+                <div class="grid lg:grid-cols-5 gap-16">
+                    <!-- Contact Form -->
+                    <div class="lg:col-span-3 bg-white dark:bg-gray-800 p-8 md:p-12 rounded-xl shadow-2xl animate-on-scroll">
+                        <h2 class="text-4xl font-bold mb-8 text-gray-800 dark:text-white">Send Us a Message</h2>
+                        <form id="contactForm" class="space-y-6">
+                            <div>
+                                <label for="name" class="block text-lg font-medium text-gray-700 dark:text-gray-300 mb-1">Name</label>
+                                <input type="text" id="name" class="mt-1 block w-full px-4 py-3 bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg shadow-sm focus:ring-orange-500 focus:border-orange-500 transition" placeholder="Your Name" required>
+                            </div>
+                            <div>
+                                <label for="contact" class="block text-lg font-medium text-gray-700 dark:text-gray-300 mb-1">Contact (Phone or Email)</label>
+                                <input type="text" id="contact" class="mt-1 block w-full px-4 py-3 bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg shadow-sm focus:ring-orange-500 focus:border-orange-500 transition" placeholder="Your Contact Info" required>
+                            </div>
+                            <div>
+                                <label for="location" class="block text-lg font-medium text-gray-700 dark:text-gray-300 mb-1">Preferred Location</label>
+                                <select id="location" class="mt-1 block w-full px-4 py-3 bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg shadow-sm focus:ring-orange-500 focus:border-orange-500 transition" required>
+                                    <option value="" disabled selected>Select a location</option>
+                                    <option>Tamil Nadu</option>
+                                    <option>Kerala</option>
+                                    <option>Karnataka</option>
+                                    <option>Himachal Pradesh</option>
+                                    <option>Goa</option>
+                                    <option>Andaman</option>
+                                    <option>Other Destinations</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="days" class="block text-lg font-medium text-gray-700 dark:text-gray-300 mb-1">Number of Days: <span id="daysValue" class="font-bold text-orange-500 dark:text-orange-400">5</span></label>
+                                <input type="range" id="days" min="1" max="15" value="5" class="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-lg appearance-none cursor-pointer range-slider">
+                            </div>
+                            <div>
+                                <label for="budget" class="block text-lg font-medium text-gray-700 dark:text-gray-300 mb-1">Budget (INR): <span id="budgetValue" class="font-bold text-orange-500 dark:text-orange-400">50,000</span></label>
+                                <input type="range" id="budget" min="5000" max="100000" step="1000" value="50000" class="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-lg appearance-none cursor-pointer range-slider">
+                            </div>
+                            <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 pt-4">
+                                <button type="button" onclick="sendWhatsApp()" class="w-full flex items-center justify-center bg-green-500 text-white px-6 py-4 rounded-lg hover:bg-green-600 transition duration-300 transform hover:scale-105 font-semibold">
+                                    <i class="fab fa-whatsapp mr-3 text-xl"></i> Send via WhatsApp
+                                </button>
+                                <button type="button" onclick="sendEmail()" class="w-full flex items-center justify-center bg-blue-500 text-white px-6 py-4 rounded-lg hover:bg-blue-600 transition duration-300 transform hover:scale-105 font-semibold">
+                                    <i class="fas fa-envelope mr-3 text-xl"></i> Send via Email
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- Contact Details -->
+                    <div class="lg:col-span-2 animate-on-scroll" style="animation-delay: 0.2s;">
+                        <div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-2xl h-full">
+                            <h3 class="text-3xl font-bold mb-6 text-gray-800 dark:text-white">Contact Information</h3>
+                            <div class="space-y-6">
+                                <div class="flex items-start space-x-4">
+                                    <i class="fas fa-map-marker-alt text-2xl text-orange-500 mt-1"></i>
+                                    <div>
+                                        <h4 class="font-semibold text-lg">Our Office</h4>
+                                        <p><a href="https://www.google.com/maps/place/Imayam+tours/@13.0210249,80.231721,17z/data=!3m1!4b1!4m6!3m5!1s0x3a526737b37302db:0x2e740ed2300f7540!8m2!3d13.0210249!4d80.231721!16s%2Fg%2F11kqc1f3y9?entry=ttu&g_ep=EgoyMDI1MDcyMy4wIKXMDSoASAFQAw%3D%3D" target="_blank">Todd Hunter Nagar, Saidapet, Chennai, Tamil Nadu 600015</a></p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-4">
+                                    <i class="fas fa-envelope text-2xl text-orange-500 mt-1"></i>
+                                    <div>
+                                        <h4 class="font-semibold text-lg">Email Us</h4>
+                                        <a href="mailto:toursimayam@gmail.com" class="hover:text-orange-500 transition-colors">toursimayam@gmail.com</a>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-4">
+                                    <i class="fas fa-phone-alt text-2xl text-orange-500 mt-1"></i>
+                                    <div>
+                                        <h4 class="font-semibold text-lg">Call Us</h4>
+                                        <a href="tel:+918072644112" class="hover:text-orange-500 transition-colors">+91 80726 44112</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-8 border-t border-gray-200 dark:border-gray-700 pt-6">
+                               <h4 class="font-semibold text-lg mb-4">Business Hours</h4>
+                               <p>Monday - Sunday: 9 AM - 7 PM</p>
+                               <p> 10/7 service available</p>
+                               <br><br>
+                                <h1>🌿 Wander through Nature’s Canvas, &nbsp   Where Every Path Paints a Story. 🎨</h1>
+                                <br><br>
+                                <a href="tours.html" class="bg-white text-orange-500 px-10 py-4 rounded-full text-xl font-semibold hover:bg-gray-200 transition duration-300 transform hover:scale-105 shadow-lg">
+                Explore <i class="fas fa-paper-plane ml-2"></i>
+            </a><br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Thank You Modal -->
+    <div id="thankYouModal" class="fixed inset-0 bg-black/60 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-2xl p-8 max-w-lg w-full text-center transform transition-all duration-300 scale-95 opacity-0">
+            <h2 class="text-3xl font-bold mb-4 text-gray-800 dark:text-white">Thank You!</h2>
+            <p>We've received your inquiry and will get back to you soon.</p>
+            <button id="closeThankYouModal" class="mt-8 bg-orange-500 text-white px-8 py-2 rounded-full hover:bg-orange-600 transition-colors">Close</button>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white dark:bg-black">
+        <div class="container mx-auto px-6 py-16">
+            <div class="grid md:grid-cols-3 gap-10">
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">Imayam Tours</h3>
+                    <p class="text-gray-400">Your trusted partner in crafting unforgettable travel memories across India.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul>
+                        <li class="mb-2"><a href="index.html" class="text-gray-400 hover:text-white transition duration-300">Home</a></li>
+                        <li class="mb-2"><a href="tours.html" class="text-gray-400 hover:text-white transition duration-300">Tours</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition duration-300">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Connect With Us</h3>
+                    <div class="flex space-x-5">
+                        <a href="https://www.facebook.com/profile.php?id=100087649875295&mibextid=ZbWKwL" class="text-2xl text-gray-400 hover:text-orange-500 transition duration-300" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://youtube.com/@imayamtours?si=nfMT5Dh-eYtAksla" class="text-2xl text-gray-400 hover:text-orange-500 transition duration-300" target="_blank"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.instagram.com/_.imayam_tours._?utm_source=qr&igsh=MWlvcngwc3hiZXk4Zw==" class="text-2xl text-gray-400 hover:text-orange-500 transition duration-300" target="_blank"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-12 border-t border-gray-700 dark:border-gray-800 pt-8 text-center text-gray-500">
+                <p>© 2025 Imayam Tours | All Rights Reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
