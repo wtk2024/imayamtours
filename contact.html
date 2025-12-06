@@ -7,6 +7,8 @@
     
     <!-- SEO Meta Tags -->
     <meta name="description" content="Get in touch with Imayam Tours for custom travel bookings. Call, email, or visit our office in Chennai. Start your journey with the best tour operators." />
+    <meta name="keywords" content="Contact Imayam Tours, Travel Agency Contact Number Chennai, Book India Tour, Tourism Inquiry, Travel Support, Imayam Tours Location Map" />
+    <meta name="robots" content="index, follow" />
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -62,7 +64,7 @@
                 <a href="index.html" class="font-medium hover:text-orange-500 transition-colors nav-text-dark">Home</a>
                 <a href="tours.html" class="font-medium hover:text-orange-500 transition-colors nav-text-dark">Destinations</a>
                 <a href="contact.html" class="font-bold text-orange-600 transition-colors nav-text-dark border-b-2 border-orange-500">Contact</a>
-                <a href="contact.html" class="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-full font-medium transition-transform transform hover:scale-105 shadow-lg flex items-center gap-2">
+                <a href="contact.html" class="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-full font-bold shadow-lg transition-transform hover:scale-105 flex items-center gap-2">
                     Book Now <i class="fas fa-paper-plane text-xs"></i>
                 </a>
             </div>
@@ -186,32 +188,77 @@
     <!-- Footer -->
     <footer class="bg-gray-900 text-white pt-20 pb-10">
         <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-center gap-6 text-center md:text-left">
-                <div class="flex items-center gap-3">
-                    <img src="cassets/logo.webp" alt="Logo" class="h-10 w-10 rounded-full bg-white/10 p-1">
-                    <span class="text-2xl font-serif font-bold">Imayam Tours</span>
+            <div class="grid md:grid-cols-4 gap-12 mb-16 border-b border-gray-800 pb-12">
+                <div class="md:col-span-2">
+                    <h3 class="text-3xl font-serif font-bold mb-6 text-white">Imayam Tours</h3>
+                    <p class="text-gray-400 leading-relaxed max-w-sm mb-6">Your trusted partner in crafting unforgettable travel memories across India.</p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com/profile.php?id=100087649875295" target="_blank" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-orange-500 transition-colors"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://youtube.com/@imayamtours" target="_blank" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-orange-500 transition-colors"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.instagram.com/_.imayam_tours._" target="_blank" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-orange-500 transition-colors"><i class="fab fa-instagram"></i></a>
+                    </div>
                 </div>
-                <div class="flex flex-wrap justify-center gap-6 text-sm text-gray-400">
-                    <a href="index.html" class="hover:text-white transition-colors">Home</a>
-                    <a href="tours.html" class="hover:text-white transition-colors">Destinations</a>
-                    <a href="contact.html" class="hover:text-white transition-colors">Contact</a>
-                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                <div>
+                    <h4 class="text-lg font-bold mb-6 text-orange-500">Quick Links</h4>
+                    <ul class="space-y-4">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
+                        <li><a href="tours.html" class="text-gray-400 hover:text-white transition-colors">Destinations</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition-colors">Contact Us</a></li>
+                    </ul>
                 </div>
-                <div class="flex gap-6 text-gray-400">
-                    <a href="https://www.facebook.com/profile.php?id=100087649875295" target="_blank" class="hover:text-white text-xl"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://youtube.com/@imayamtours" target="_blank" class="hover:text-white text-xl"><i class="fab fa-youtube"></i></a>
-                    <a href="https://www.instagram.com/_.imayam_tours._" target="_blank" class="hover:text-white text-xl"><i class="fab fa-instagram"></i></a>
+                <div>
+                    <h4 class="text-lg font-bold mb-6 text-orange-500">Legal</h4>
+                    <ul class="space-y-4">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Terms of Service</a></li>
+                    </ul>
                 </div>
             </div>
-            <div class="border-t border-gray-800 mt-10 pt-8 text-center text-gray-500 text-sm">
-                &copy; 2025 Imayam Tours. Designed by <a href="https://codux.fun" target="_blank" class="text-orange-500 hover:underline">codux.fun</a>
-            </div>
+            <div class="text-center text-gray-500 text-sm">&copy; 2025 Imayam Tours. All Rights Reserved. Designed with <i class="fas fa-heart text-red-500"></i> in India.</div>
         </div>
     </footer>
 
-    <!-- Scripts -->
-    <script src="js/script.js"></script>
     <script>
+        // List of tours for dropdown (Shared Data)
+        const tourNames = ["Chennai", "Ooty", "Kodaikanal", "Valparai", "Yercaud", "Kanyakumari", "Dhanushkodi", "Temples of Tamil Nadu", "Velankanni Church", "Jumma Masjid, Kilakarai", "Munnar", "Wayanad", "Kochi", "Varkala", "Vagamon & Thekkady", "Padmanabhaswamy Temple", "Coorg", "Mysore", "Chikmagalur", "Gokarna", "Murdeshwar", "Shimla", "Manali", "Kullu", "Goa", "Andaman", "Jammu - Gulmarg", "Sikkim", "Darjeeling", "Agra", "Rajasthan", "Kashi"];
+
+        // Init Form
+        const select = document.getElementById('contact-location');
+        tourNames.forEach(name => {
+            const opt = document.createElement('option'); opt.value = name; opt.innerText = name; select.appendChild(opt);
+        });
+
+        // Pre-select from URL params
+        const urlParams = new URLSearchParams(window.location.search);
+        const dest = urlParams.get('dest');
+        if(dest) select.value = dest;
+
+        // Map Modal Logic
+        function openMapModal() {
+            document.getElementById('mapModal').classList.remove('hidden');
+            setTimeout(() => { document.getElementById('mapModalContent').classList.remove('scale-95', 'opacity-0'); document.getElementById('mapModalContent').classList.add('scale-100', 'opacity-100'); }, 10);
+        }
+        function closeMapModal() {
+            document.getElementById('mapModalContent').classList.remove('scale-100', 'opacity-100'); document.getElementById('mapModalContent').classList.add('scale-95', 'opacity-0');
+            setTimeout(() => { document.getElementById('mapModal').classList.add('hidden'); }, 300);
+        }
+        document.getElementById('mapModal').addEventListener('click', (e) => { if(e.target.id === 'mapModal') closeMapModal(); });
+
+        // Contact Logic
+        function getContactData() {
+            return { name: document.getElementById('contact-name').value, phone: document.getElementById('contact-phone').value, days: document.getElementById('contact-days').value, budget: document.getElementById('contact-budget').value, loc: document.getElementById('contact-location').value };
+        }
+        function sendWhatsApp() {
+            const data = getContactData(); if(!data.name || !data.phone) { alert("Please enter Name and Phone."); return; }
+            const msg = `Hi, I'm ${data.name}. Contact: ${data.phone}. Plan a ${data.days}-day trip to ${data.loc} with budget ₹${data.budget}.`;
+            window.open(`https://wa.me/918072644112?text=${encodeURIComponent(msg)}`, '_blank');
+        }
+        function sendEmail() {
+            const data = getContactData(); if(!data.name || !data.phone) { alert("Please enter Name and Phone."); return; }
+            const subject = `Trip Inquiry: ${data.name}`; const body = `Name: ${data.name}%0D%0AContact: ${data.phone}%0D%0ADestination: ${data.loc}%0D%0ADuration: ${data.days} days%0D%0ABudget: ${data.budget}`;
+            window.location.href = `mailto:toursimayam@gmail.com?subject=${subject}&body=${body}`;
+        }
+        
         // Mobile Menu Logic
         const mobileBtn = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
@@ -232,41 +279,6 @@
                 document.body.style.overflow = '';
             }
         });
-
-        // Map Modal Logic
-        function openMapModal() {
-            document.getElementById('mapModal').classList.remove('hidden');
-            setTimeout(() => { document.getElementById('mapModalContent').classList.remove('scale-95', 'opacity-0'); document.getElementById('mapModalContent').classList.add('scale-100', 'opacity-100'); }, 10);
-        }
-        function closeMapModal() {
-            document.getElementById('mapModalContent').classList.remove('scale-100', 'opacity-100'); document.getElementById('mapModalContent').classList.add('scale-95', 'opacity-0');
-            setTimeout(() => { document.getElementById('mapModal').classList.add('hidden'); }, 300);
-        }
-        
-        // Slider Logic
-        document.getElementById('contact-days').addEventListener('input', function() { document.getElementById('daysValue').textContent = this.value; });
-        document.getElementById('contact-budget').addEventListener('input', function() { document.getElementById('budgetValue').textContent = parseInt(this.value).toLocaleString(); });
-
-        // Contact Form Actions
-        function getContactData() {
-            return { 
-                name: document.getElementById('contact-name').value, 
-                phone: document.getElementById('contact-phone').value, 
-                days: document.getElementById('contact-days').value, 
-                budget: document.getElementById('contact-budget').value, 
-                loc: document.getElementById('contact-location').value 
-            };
-        }
-        function sendWhatsApp() {
-            const data = getContactData(); if(!data.name || !data.phone) { alert("Please enter Name and Phone."); return; }
-            const msg = `Hi, I'm ${data.name}. Contact: ${data.phone}. Plan a ${data.days}-day trip to ${data.loc} with budget ₹${data.budget}.`;
-            window.open(`https://wa.me/918072644112?text=${encodeURIComponent(msg)}`, '_blank');
-        }
-        function sendEmail() {
-            const data = getContactData(); if(!data.name || !data.phone) { alert("Please enter Name and Phone."); return; }
-            const subject = `Trip Inquiry: ${data.name}`; const body = `Name: ${data.name}%0D%0AContact: ${data.phone}%0D%0ADestination: ${data.loc}%0D%0ADuration: ${data.days} days%0D%0ABudget: ${data.budget}`;
-            window.location.href = `mailto:toursimayam@gmail.com?subject=${subject}&body=${body}`;
-        }
     </script>
 </body>
 </html>
