@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth dark">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -37,21 +37,56 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-    <link rel="stylesheet" href="css/styles.css" />
+    <style>
+        /* Custom Styles that can't be handled by Tailwind arbitrary values easily */
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            height: 8px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #1f2937; /* Gray 800 for dark mode scrollbar track */
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #4b5563; /* Gray 600 for dark mode scrollbar thumb */
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #6b7280; /* Gray 500 */
+        }
+        
+        /* Animation Utilities */
+        .animate-fade-in {
+            animation: fadeIn 1s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .animate-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
     <script>
-      // Set theme on initial load
-      if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-        document.documentElement.classList.add('dark');
-      } else {
-        document.documentElement.classList.remove('dark');
-      }
+      // Force Dark Mode immediately
+      document.documentElement.classList.add('dark');
     </script>
 </head>
-<body class="bg-gray-50 text-gray-700 font-sans dark:bg-gray-900 dark:text-gray-300">
+<body class="bg-gray-50 text-gray-700 font-sans pb-8 dark:bg-gray-900 dark:text-gray-300 transition-colors duration-300">
 
     <!-- Header & Navbar -->
-    <header class="bg-white/80 backdrop-blur-md shadow-sm fixed top-0 left-0 right-0 z-50 dark:bg-gray-900/80">
+    <header class="bg-white/80 backdrop-blur-md shadow-sm fixed top-0 left-0 right-0 z-50 dark:bg-gray-900/80 dark:border-b dark:border-gray-800 transition-colors duration-300">
         <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
             <a href="index.html" class="flex items-center space-x-3">
                 <img src="cassets/logo.webp" alt="Imayam Tours Logo" class="h-14"/>
@@ -63,10 +98,7 @@
                 <a href="contact.html" class="text-gray-600 hover:text-orange-500 transition duration-300 text-lg dark:text-gray-300 dark:hover:text-orange-400">Contact</a>
             </div>
             <div class="flex items-center space-x-4">
-                <button id="theme-toggle" class="text-gray-600 dark:text-gray-300 hover:text-orange-500 dark:hover:text-orange-400 text-xl">
-                    <i class="fas fa-sun" id="theme-toggle-light-icon"></i>
-                    <i class="fas fa-moon hidden" id="theme-toggle-dark-icon"></i>
-                </button>
+                <!-- Theme toggle removed -->
                 <a href="contact.html" class="hidden lg:block bg-orange-500 text-white px-8 py-3 rounded-full hover:bg-orange-600 transition duration-300 transform hover:scale-105">Book Now</a>
                 <button id="mobile-menu-button" class="lg:hidden text-2xl text-gray-700 dark:text-gray-300">
                     <i class="fas fa-bars"></i>
@@ -74,11 +106,11 @@
             </div>
         </nav>
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden lg:hidden px-6 pb-4">
-            <a href="index.html" class="block py-2 text-gray-600 dark:text-gray-300">Home</a>
-            <a href="tours.html" class="block py-2 text-orange-500 dark:text-orange-400 font-semibold">Tours</a>
-            <a href="contact.html" class="block py-2 text-gray-600 dark:text-gray-300">Contact</a>
-            <a href="contact.html" class="block mt-2 bg-orange-500 text-white px-6 py-2 rounded-full text-center">Book Now</a>
+        <div id="mobile-menu" class="hidden lg:hidden px-6 pb-4 bg-white shadow-md absolute w-full left-0 top-20 border-t border-gray-100 dark:bg-gray-900 dark:border-gray-800">
+            <a href="index.html" class="block py-3 text-gray-600 border-b border-gray-100 dark:border-gray-800 dark:text-gray-300">Home</a>
+            <a href="tours.html" class="block py-3 text-orange-500 font-semibold border-b border-gray-100 dark:border-gray-800 dark:text-orange-400">Tours</a>
+            <a href="contact.html" class="block py-3 text-gray-600 border-b border-gray-100 dark:border-gray-800 dark:text-gray-300">Contact</a>
+            <a href="contact.html" class="block mt-4 bg-orange-500 text-white px-6 py-2 rounded-full text-center">Book Now</a>
         </div>
     </header>
 
@@ -93,7 +125,7 @@
         </section>
 
         <!-- Tour Sections -->
-        <section class="py-24">
+        <section class="py-24 bg-white dark:bg-gray-800 transition-colors duration-300">
             <div class="container mx-auto px-6">
                 <!-- Tour sections will be dynamically generated here -->
                 <div id="tour-sections"></div>
@@ -115,7 +147,7 @@
     </div>
     
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white dark:bg-black">
+    <footer class="bg-gray-800 text-white pb-16 dark:bg-black">
         <div class="container mx-auto px-6 py-16">
             <div class="grid md:grid-cols-3 gap-10">
                 <div>
@@ -145,6 +177,44 @@
         </div>
     </footer>
 
+    <!-- Sticky Branding Footer -->
+    <div class="fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-sm border-t border-gray-200 py-1.5 z-50 text-center shadow-[0_-2px_10px_rgba(0,0,0,0.05)] dark:bg-gray-900/95 dark:text-gray-400 dark:border-gray-800">
+        <p class="text-xs font-medium text-gray-500 dark:text-gray-400">
+            Designed by <a href="https://my.codux.fun" target="_blank" class="text-orange-600 hover:text-orange-700 font-bold hover:underline transition-colors dark:text-orange-500 dark:hover:text-orange-400">my codux.fun</a>
+        </p>
+    </div>
+
     <script src="js/script.js"></script>
+    <script>
+        // Ensure dark mode persists
+        if (!document.documentElement.classList.contains('dark')) {
+             document.documentElement.classList.add('dark');
+        }
+
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-button');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Scroll Animation Observer
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach((el) => {
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>
