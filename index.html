@@ -91,25 +91,22 @@
             </div>
 
             <!-- Hamburger Button -->
-            <button id="menu-btn" class="md:hidden z-50 text-white text-3xl focus:outline-none p-2">
+            <button id="menu-btn" class="md:hidden z-50 text-white text-3xl focus:outline-none p-2 transition-colors">
                 <i class="fas fa-bars"></i>
             </button>
         </div>
     </nav>
 
     <!-- Full Screen Mobile Menu Overlay -->
-    <div id="mobile-menu" class="menu-hidden fixed inset-0 z-40 bg-black/60 backdrop-blur-xl flex flex-col items-center justify-center">
-        <!-- Close Button (Absolute position) -->
-        <!-- Note: We use the main menu-btn to toggle, but visual feedback changes -->
-        
-        <div class="flex flex-col items-center space-y-8 text-center animate-fade-in-up">
-            <span class="text-orange-400 tracking-widest text-sm font-bold uppercase mb-4">Discover The Unseen</span>
+    <div id="mobile-menu" class="menu-hidden fixed inset-0 z-40 bg-white/95 backdrop-blur-xl flex flex-col items-center justify-center">
+        <div class="flex flex-col items-center space-y-8 text-center animate-fade-in-up w-full">
             
-            <a href="index.html" class="text-3xl text-orange-500 font-serif font-bold">Home</a>
-            <a href="tours.html" class="text-3xl text-white font-serif font-medium hover:text-orange-400 transition-colors">Destinations</a>
-            <a href="contact.html" class="text-3xl text-white font-serif font-medium hover:text-orange-400 transition-colors">Contact</a>
+            <a href="index.html" class="text-3xl text-orange-500 font-serif font-bold w-full py-2">Home</a>
+            <a href="tours.html" class="text-3xl text-gray-800 font-serif font-medium hover:text-orange-500 transition-colors w-full py-2">Destinations</a>
+            <a href="contact.html" class="text-3xl text-gray-800 font-serif font-medium hover:text-orange-500 transition-colors w-full py-2">Contact</a>
             
-            <a href="contact.html" class="mt-8 bg-orange-500 text-white px-12 py-4 rounded-full text-xl font-bold shadow-xl hover:bg-orange-600 transition-transform active:scale-95">
+            <!-- Book Now Button inside menu -->
+            <a href="contact.html" class="mt-8 bg-orange-500 text-white px-12 py-4 rounded-full text-xl font-bold shadow-xl hover:bg-orange-600 transition-transform active:scale-95 inline-block">
                 Book Now
             </a>
         </div>
@@ -125,7 +122,7 @@
                 </span>
             </div>
             
-            <!-- Headline: Adjusted size for mobile to fix "zoomed in" look -->
+            <!-- Headline -->
             <h1 class="text-5xl sm:text-6xl md:text-8xl text-white font-bold leading-tight text-shadow font-serif animate-fade-in-up">
                 Let’s Curate Your <br/> 
                 <span class="italic text-orange-500">Dream Escape</span>
@@ -257,20 +254,28 @@
 
             if (window.scrollY > 50) {
                 nav.classList.add('nav-scrolled');
+                nav.classList.remove('nav-glass'); // Remove transparent glass
+                
                 logoText?.classList.remove('text-white');
                 logoText?.classList.add('text-gray-800');
+                
                 menuBtn?.classList.remove('text-white');
                 menuBtn?.classList.add('text-gray-800');
+                
                 navLinks.forEach(link => {
                     link.classList.remove('text-white');
                     link.classList.add('text-gray-800');
                 });
             } else {
                 nav.classList.remove('nav-scrolled');
+                nav.classList.add('nav-glass'); // Add transparent glass back
+                
                 logoText?.classList.add('text-white');
                 logoText?.classList.remove('text-gray-800');
+                
                 menuBtn?.classList.add('text-white');
                 menuBtn?.classList.remove('text-gray-800');
+                
                 navLinks.forEach(link => {
                     link.classList.add('text-white');
                     link.classList.remove('text-gray-800');
@@ -278,7 +283,7 @@
             }
         });
 
-        // Robust Mobile Menu Toggle
+        // Mobile Menu Toggle Logic
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         const icon = menuBtn.querySelector('i');
@@ -290,16 +295,30 @@
                 // Open Menu
                 mobileMenu.classList.remove('menu-hidden');
                 mobileMenu.classList.add('menu-visible');
+                
+                // Toggle Icon to 'X' (Times) and change color to dark for visibility on white menu
                 icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times'); // Switch to X icon
-                document.body.style.overflow = 'hidden'; // Prevent background scrolling
+                icon.classList.add('fa-times');
+                menuBtn.classList.remove('text-white');
+                menuBtn.classList.add('text-gray-800');
+                
+                document.body.style.overflow = 'hidden'; // Lock scroll
             } else {
                 // Close Menu
                 mobileMenu.classList.add('menu-hidden');
                 mobileMenu.classList.remove('menu-visible');
+                
+                // Toggle Icon back to Bars
                 icon.classList.add('fa-bars');
-                icon.classList.remove('fa-times'); // Switch back to bars
-                document.body.style.overflow = ''; // Restore scrolling
+                icon.classList.remove('fa-times');
+                
+                // Reset color logic based on scroll position
+                if (window.scrollY <= 50) {
+                    menuBtn.classList.add('text-white');
+                    menuBtn.classList.remove('text-gray-800');
+                }
+                
+                document.body.style.overflow = ''; // Restore scroll
             }
         });
     </script>
