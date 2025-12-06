@@ -54,15 +54,28 @@
         
         .text-shadow { text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
         
-        /* Smooth fade in for mobile menu */
-        #mobile-menu { transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out; }
+        /* Mobile menu animation */
+        #mobile-menu {
+            transform-origin: top;
+            transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        }
+        .menu-closed {
+            transform: scaleY(0);
+            opacity: 0;
+            pointer-events: none;
+        }
+        .menu-open {
+            transform: scaleY(1);
+            opacity: 1;
+            pointer-events: auto;
+        }
     </style>
 </head>
 <body class="text-gray-800 antialiased min-h-screen flex flex-col">
 
     <!-- Navigation -->
     <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 nav-transparent">
-        <div class="container mx-auto px-6 flex justify-between items-center">
+        <div class="container mx-auto px-6 flex justify-between items-center relative z-50">
             <!-- Logo -->
             <a href="index.html" class="text-3xl font-bold flex items-center gap-3 cursor-pointer transition-colors duration-300 nav-text-white group" id="nav-logo">
                 <img src="cassets/logo.webp" alt="Logo" class="h-12 w-12 object-contain rounded-full bg-white/20 p-1 backdrop-blur-sm group-hover:scale-110 transition-transform duration-300">
@@ -80,17 +93,17 @@
             </div>
 
             <!-- Mobile Menu Button -->
-            <button id="mobile-menu-button" class="md:hidden text-3xl transition-colors nav-text-white hover:text-orange-500 focus:outline-none">
+            <button id="mobile-menu-button" class="md:hidden text-3xl transition-colors nav-text-white hover:text-orange-500 focus:outline-none p-2">
                 <i class="fas fa-bars"></i>
             </button>
         </div>
 
         <!-- Mobile Menu Dropdown -->
-        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white/98 backdrop-blur-xl shadow-2xl py-8 flex flex-col items-center space-y-6 border-t border-gray-100 transform origin-top animate-fade-in h-screen">
-            <a href="index.html" class="text-orange-600 text-xl font-bold border-b-2 border-orange-100 pb-1 w-full text-center">Home</a>
-            <a href="tours.html" class="text-gray-700 text-xl hover:text-orange-600 font-medium transition-colors w-full text-center">Destinations</a>
-            <a href="contact.html" class="text-gray-700 text-xl hover:text-orange-600 font-medium transition-colors w-full text-center">Contact</a>
-            <a href="contact.html" class="bg-orange-500 text-white px-10 py-3 rounded-full font-bold shadow-md hover:bg-orange-600 w-3/4 text-center">Book Now</a>
+        <div id="mobile-menu" class="menu-closed absolute top-full left-0 w-full bg-white/98 backdrop-blur-xl shadow-2xl py-8 flex flex-col items-center space-y-6 border-t border-gray-100 z-40">
+            <a href="index.html" class="text-orange-600 text-xl font-bold border-b-2 border-orange-100 pb-1 w-full text-center py-2">Home</a>
+            <a href="tours.html" class="text-gray-700 text-xl hover:text-orange-600 font-medium transition-colors w-full text-center py-2">Destinations</a>
+            <a href="contact.html" class="text-gray-700 text-xl hover:text-orange-600 font-medium transition-colors w-full text-center py-2">Contact</a>
+            <a href="contact.html" class="bg-orange-500 text-white px-10 py-3 rounded-full font-bold shadow-md hover:bg-orange-600 w-3/4 text-center mt-4">Book Now</a>
         </div>
     </nav>
 
@@ -219,7 +232,7 @@
             </div>
             
             <div class="mt-12">
-                <a href="https://g.page/r/CUAA_yAHE3Q6EAE/review" target="_blank" class="inline-flex items-center gap-2 bg-white text-teal-900 px-8 py-3 rounded-full font-bold hover:bg-orange-500 hover:text-white transition-all transform hover:scale-105 shadow-lg">
+                <a href="https://g.page/r/CUAA_yAHE3Q6EAE/review" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-white text-teal-900 px-8 py-3 rounded-full font-bold hover:bg-orange-500 hover:text-white transition-all transform hover:scale-105 shadow-lg">
                     <i class="fab fa-google"></i> Read More Reviews on Google
                 </a>
             </div>
@@ -273,7 +286,7 @@
     <!-- Linked External Script -->
     <script src="js/script.js"></script>
     <script>
-        // Navbar scroll effect logic for Home Page (Specific to index.html)
+        // Navbar scroll effect
         function updateNavbarStyle() {
             const nav = document.getElementById('navbar');
             const logo = document.getElementById('nav-logo');
@@ -302,23 +315,45 @@
         }
         window.addEventListener('scroll', updateNavbarStyle);
         
-        // Mobile Menu Fix
-        const mobileBtn = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        
-        if(mobileBtn && mobileMenu) {
-            mobileBtn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                mobileMenu.classList.toggle('hidden');
-            });
+        // Robust Mobile Menu Toggle with Event Delegation
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('mobile-menu-button');
+            const menu = document.getElementById('mobile-menu');
             
-            // Close menu when clicking outside
-            document.addEventListener('click', (e) => {
-                if (!mobileBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
-                    mobileMenu.classList.add('hidden');
-                }
-            });
-        }
+            if (btn && menu) {
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation(); // Prevent bubbling
+                    const isClosed = menu.classList.contains('hidden') || menu.classList.contains('menu-closed');
+                    
+                    if (isClosed) {
+                        menu.classList.remove('hidden', 'menu-closed');
+                        menu.classList.add('menu-open');
+                    } else {
+                        menu.classList.add('menu-closed');
+                        menu.classList.remove('menu-open');
+                        setTimeout(() => menu.classList.add('hidden'), 300); // Wait for transition
+                    }
+                });
+
+                // Close menu when clicking links
+                menu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        menu.classList.add('menu-closed');
+                        menu.classList.remove('menu-open');
+                        setTimeout(() => menu.classList.add('hidden'), 300);
+                    });
+                });
+                
+                // Close menu on click outside
+                document.addEventListener('click', (e) => {
+                    if (!menu.contains(e.target) && !btn.contains(e.target) && !menu.classList.contains('hidden')) {
+                        menu.classList.add('menu-closed');
+                        menu.classList.remove('menu-open');
+                        setTimeout(() => menu.classList.add('hidden'), 300);
+                    }
+                });
+            }
+        });
     </script>
 </body>
 </html>
