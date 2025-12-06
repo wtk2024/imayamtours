@@ -7,14 +7,20 @@
     
     <!-- SEO Meta Tags -->
     <meta name="description" content="Get in touch with Imayam Tours for custom travel bookings. Call, email, or visit our office in Chennai. Start your journey with the best tour operators." />
-    <meta name="keywords" content="Contact Imayam Tours, Travel Agency Contact Number Chennai, Book India Tour, Tourism Inquiry, Travel Support, Imayam Tours Location Map" />
-    <meta name="robots" content="index, follow" />
     
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <!-- External CSS -->
+    <link rel="stylesheet" href="css/styles.css" />
+
     <script>
         tailwind.config = {
             theme: {
@@ -27,71 +33,136 @@
     </script>
     <style>
         body { background-color: #fff7ed; }
-        .nav-glass { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); padding: 0.75rem 0; }
+        
+        /* Glass Navbar */
+        .nav-glass { 
+            background: rgba(255, 255, 255, 0.90); 
+            backdrop-filter: blur(12px); 
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); 
+            padding: 0.75rem 0; 
+            transition: all 0.3s ease;
+        }
         .nav-text-dark { color: #1f2937; }
+        
+        /* Modal Transition */
         #mapModal { transition: opacity 0.3s ease-in-out; }
         #mapModalContent { transition: transform 0.3s ease-in-out; }
     </style>
 </head>
 <body class="text-gray-800 antialiased min-h-screen flex flex-col">
 
-    <!-- Navigation (Glassy) -->
+    <!-- Navigation -->
     <nav id="navbar" class="fixed w-full z-50 nav-glass">
         <div class="container mx-auto px-6 flex justify-between items-center">
-            <a href="index.html" class="text-2xl font-bold flex items-center gap-2 cursor-pointer nav-text-dark" id="nav-logo">
-                <img src="cassets/logo.webp" alt="Logo" class="h-10 w-10 object-contain rounded-full bg-white/20 p-1">
-                <span class="font-serif tracking-wide">Imayam Tours</span>
+            <a href="index.html" class="text-2xl font-bold flex items-center gap-2 cursor-pointer nav-text-dark group" id="nav-logo">
+                <img src="cassets/logo.webp" alt="Logo" class="h-10 w-10 object-contain rounded-full bg-white/20 p-1 group-hover:scale-105 transition-transform duration-300">
+                <span class="font-serif tracking-wide group-hover:text-orange-600 transition-colors">Imayam Tours</span>
             </a>
-            <div class="hidden md:flex items-center space-x-8" id="desktop-menu-links">
-                <a href="index.html" class="font-medium transition-colors hover:text-orange-500 nav-text-dark">Home</a>
-                <a href="tours.html" class="font-medium transition-colors hover:text-orange-500 nav-text-dark">Destinations</a>
-                <a href="contact.html" class="font-bold text-orange-500 transition-colors nav-text-dark">Contact</a>
-                <a href="contact.html" class="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-full font-medium transition-transform transform hover:scale-105 shadow-lg">Book Now</a>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="font-medium hover:text-orange-500 transition-colors nav-text-dark">Home</a>
+                <a href="tours.html" class="font-medium hover:text-orange-500 transition-colors nav-text-dark">Destinations</a>
+                <a href="contact.html" class="font-bold text-orange-600 transition-colors nav-text-dark border-b-2 border-orange-500">Contact</a>
+                <a href="contact.html" class="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-full font-medium transition-transform transform hover:scale-105 shadow-lg flex items-center gap-2">
+                    Book Now <i class="fas fa-paper-plane text-xs"></i>
+                </a>
             </div>
-            <button id="mobile-menu-btn" class="md:hidden text-2xl transition-colors nav-text-dark"><i class="fas fa-bars"></i></button>
+            <button id="mobile-menu-button" class="md:hidden text-2xl transition-colors nav-text-dark hover:text-orange-500">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
-        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white shadow-xl py-6 flex flex-col items-center space-y-6 border-t">
-            <a href="index.html" class="text-gray-800 text-lg hover:text-orange-500 font-medium">Home</a>
-            <a href="tours.html" class="text-gray-800 text-lg hover:text-orange-500 font-medium">Destinations</a>
-            <a href="contact.html" class="text-orange-600 text-lg font-bold">Contact</a>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white/95 backdrop-blur-md shadow-xl py-6 flex flex-col items-center justify-center space-y-6 border-t animate-fade-in h-screen">
+            <a href="index.html" class="text-gray-800 text-2xl font-serif font-medium hover:text-orange-500 transition-colors w-full text-center py-2">Home</a>
+            <a href="tours.html" class="text-gray-800 text-2xl font-serif font-medium hover:text-orange-500 transition-colors w-full text-center py-2">Destinations</a>
+            <a href="contact.html" class="text-orange-600 text-2xl font-serif font-bold w-full text-center py-2">Contact</a>
+            <a href="contact.html" class="mt-8 bg-orange-500 text-white px-10 py-3 rounded-full text-xl font-bold shadow-md hover:bg-orange-600">Book Now</a>
         </div>
     </nav>
 
     <!-- Main Content -->
-    <main class="flex-grow pt-32 pb-20 bg-white">
+    <main class="flex-grow pt-32 pb-20 bg-orange-50/30">
         <div class="container mx-auto px-6">
-            <div class="grid lg:grid-cols-2 gap-16 items-center">
-                <div class="animate-fade-in-left">
-                    <h2 class="text-5xl font-bold text-gray-900 mb-6 font-serif">Let's Plan Your Next Adventure</h2>
-                    <p class="text-lg text-gray-600 mb-8">Fill out the form, and our travel experts will build a custom itinerary just for you within 24 hours.</p>
-                    <div class="space-y-6">
-                        <div class="flex items-center gap-4 p-4 bg-orange-50 rounded-lg"><div class="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center text-orange-600"><i class="fas fa-phone-alt text-xl"></i></div><div><div class="text-sm text-gray-500 font-bold uppercase">Call Us</div><div class="text-xl font-bold text-gray-800">+91 80726 44112</div></div></div>
-                        <div class="flex items-center gap-4 p-4 bg-teal-50 rounded-lg"><div class="w-12 h-12 bg-teal-100 rounded-full flex items-center justify-center text-teal-600"><i class="fas fa-envelope text-xl"></i></div><div><div class="text-sm text-gray-500 font-bold uppercase">Email Us</div><div class="text-xl font-bold text-gray-800">toursimayam@gmail.com</div></div></div>
-                        
-                        <!-- Interactive Map Card -->
-                        <div onclick="openMapModal()" class="mt-8 p-6 bg-gray-900 text-white rounded-xl cursor-pointer hover:bg-gray-800 transition-all transform hover:-translate-y-1 shadow-xl group">
-                            <div class="flex justify-between items-start">
-                                <div><h4 class="font-bold text-lg mb-2 flex items-center gap-2">Visit Our Office <span class="text-xs bg-orange-500 px-2 py-0.5 rounded text-white font-bold">MAP</span></h4><p class="text-gray-400">Todd Hunter Nagar, Saidapet,<br/>Chennai, Tamil Nadu 600015</p></div>
-                                <div class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center group-hover:bg-orange-500 transition-colors"><i class="fas fa-map-marker-alt text-lg"></i></div>
+            <div class="grid lg:grid-cols-2 gap-16 items-start">
+                
+                <!-- Left Column: Info & Map -->
+                <div class="animate-fade-in-left space-y-8">
+                    <div>
+                        <span class="text-orange-500 font-bold uppercase tracking-wider text-sm mb-2 block">Get in Touch</span>
+                        <h2 class="text-5xl font-bold text-gray-900 mb-6 font-serif leading-tight">Let's Plan Your <br/><span class="text-orange-600 italic">Next Adventure</span></h2>
+                        <p class="text-lg text-gray-600 leading-relaxed">
+                            Fill out the form, and our travel experts will build a custom itinerary just for you within 24 hours. We are here to make your dream trip a reality.
+                        </p>
+                    </div>
+
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div class="flex items-center gap-4 p-5 bg-white rounded-2xl shadow-sm border border-orange-100 hover:shadow-md transition-shadow">
+                            <div class="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center text-orange-600 text-xl"><i class="fas fa-phone-alt"></i></div>
+                            <div>
+                                <div class="text-xs text-gray-500 font-bold uppercase tracking-wide">Call Us</div>
+                                <div class="text-lg font-bold text-gray-800 font-serif">+91 80726 44112</div>
                             </div>
-                            <div class="mt-4 pt-4 border-t border-gray-700 flex items-center text-orange-400 text-sm font-bold group-hover:text-orange-300">Click to view on map <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i></div>
+                        </div>
+                        <div class="flex items-center gap-4 p-5 bg-white rounded-2xl shadow-sm border border-teal-100 hover:shadow-md transition-shadow">
+                            <div class="w-12 h-12 bg-teal-100 rounded-full flex items-center justify-center text-teal-600 text-xl"><i class="fas fa-envelope"></i></div>
+                            <div>
+                                <div class="text-xs text-gray-500 font-bold uppercase tracking-wide">Email Us</div>
+                                <div class="text-lg font-bold text-gray-800 font-serif">toursimayam@gmail.com</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Interactive Map Card -->
+                    <div onclick="openMapModal()" class="relative overflow-hidden rounded-2xl shadow-lg group cursor-pointer border-2 border-white">
+                        <!-- Background Map Image Placeholder -->
+                        <div class="absolute inset-0 bg-gray-200 bg-[url('https://maps.googleapis.com/maps/api/staticmap?center=13.0210249,80.231721&zoom=15&size=600x300&sensor=false&key=YOUR_API_KEY_HERE')] bg-cover bg-center opacity-50 group-hover:opacity-40 transition-opacity"></div>
+                        <div class="absolute inset-0 bg-gradient-to-r from-gray-900/90 to-gray-900/40"></div>
+                        
+                        <div class="relative p-8 flex justify-between items-center z-10">
+                            <div>
+                                <h4 class="font-bold text-xl text-white mb-2 flex items-center gap-3">
+                                    Visit Our Office <span class="text-[10px] bg-orange-500 px-2 py-1 rounded text-white font-bold tracking-wider uppercase">Live Map</span>
+                                </h4>
+                                <p class="text-gray-300 text-sm leading-relaxed">Todd Hunter Nagar, Saidapet,<br/>Chennai, Tamil Nadu 600015</p>
+                                <div class="mt-4 flex items-center text-orange-400 text-sm font-bold group-hover:text-orange-300 transition-colors">
+                                    Click to expand view <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                                </div>
+                            </div>
+                            <div class="w-14 h-14 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center group-hover:bg-orange-500 group-hover:text-white text-orange-400 transition-all transform group-hover:scale-110 border border-white/20">
+                                <i class="fas fa-map-marker-alt text-2xl"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <form onsubmit="handleFormSubmit(event)" class="bg-white p-8 md:p-10 rounded-3xl shadow-2xl border border-gray-100">
-                    <div id="form-content">
-                        <h3 class="text-2xl font-bold text-gray-800 mb-6">Send an Inquiry</h3>
-                        <div class="grid md:grid-cols-2 gap-6 mb-6">
-                            <div class="space-y-2"><label class="text-sm font-bold text-gray-700">Your Name</label><input required id="contact-name" type="text" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-orange-500 focus:outline-none transition-all" placeholder="John Doe" /></div>
-                            <div class="space-y-2"><label class="text-sm font-bold text-gray-700">Contact No.</label><input required id="contact-phone" type="tel" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-orange-500 focus:outline-none transition-all" placeholder="+91 98765..." /></div>
+                <!-- Right Column: Form -->
+                <form id="contactForm" class="bg-white p-10 rounded-3xl shadow-2xl border border-gray-100">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6">Send an Inquiry</h3>
+                    <div class="space-y-4">
+                        <input id="contact-name" type="text" placeholder="Your Name" class="w-full px-4 py-3 bg-gray-50 border rounded-lg focus:ring-2 focus:ring-orange-500 outline-none" required>
+                        <input id="contact-phone" type="text" placeholder="Phone or Email" class="w-full px-4 py-3 bg-gray-50 border rounded-lg focus:ring-2 focus:ring-orange-500 outline-none" required>
+                        <select id="contact-location" class="w-full px-4 py-3 bg-gray-50 border rounded-lg focus:ring-2 focus:ring-orange-500 outline-none">
+                            <option value="">Select Destination</option>
+                            <option value="Kerala">Kerala</option>
+                            <option value="Goa">Goa</option>
+                            <option value="Tamil Nadu">Tamil Nadu</option>
+                            <option value="Andaman">Andaman</option>
+                            <option value="Himachal">Himachal Pradesh</option>
+                        </select>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="text-xs font-bold text-gray-500">Days: <span id="daysValue">5</span></label>
+                                <input id="contact-days" type="range" min="1" max="15" value="5" class="w-full accent-orange-500">
+                            </div>
+                            <div>
+                                <label class="text-xs font-bold text-gray-500">Budget: ₹<span id="budgetValue">50,000</span></label>
+                                <input id="contact-budget" type="range" min="5000" max="100000" step="1000" value="50000" class="w-full accent-orange-500">
+                            </div>
                         </div>
-                        <div class="grid md:grid-cols-2 gap-6 mb-6">
-                            <div class="space-y-2"><label class="text-sm font-bold text-gray-700">Days</label><input id="contact-days" type="number" min="1" value="3" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-orange-500 focus:outline-none transition-all" /></div>
-                            <div class="space-y-2"><label class="text-sm font-bold text-gray-700">Budget (INR)</label><input id="contact-budget" type="number" step="1000" value="10000" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-orange-500 focus:outline-none transition-all" /></div>
+                        <div class="flex gap-4 pt-2">
+                            <button type="button" onclick="sendWhatsApp()" class="w-1/2 bg-green-500 text-white py-3 rounded-xl font-bold hover:bg-green-600 transition-colors flex justify-center gap-2"><i class="fab fa-whatsapp text-xl"></i> WhatsApp</button>
+                            <button type="button" onclick="sendEmail()" class="w-1/2 bg-blue-500 text-white py-3 rounded-xl font-bold hover:bg-blue-600 transition-colors flex justify-center gap-2"><i class="fas fa-envelope text-xl"></i> Email</button>
                         </div>
-                        <div class="space-y-2 mb-6"><label class="text-sm font-bold text-gray-700">Location Preference</label><select id="contact-location" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-orange-500 focus:outline-none transition-all"><option value="Custom">Custom / Other</option></select></div>
-                        <div class="flex gap-4"><button type="button" onclick="sendWhatsApp()" class="w-1/2 bg-green-500 text-white font-bold py-3 rounded-xl hover:bg-green-600 transition-all shadow-md flex items-center justify-center gap-2"><i class="fab fa-whatsapp"></i> WhatsApp</button><button type="button" onclick="sendEmail()" class="w-1/2 bg-blue-500 text-white font-bold py-3 rounded-xl hover:bg-blue-600 transition-all shadow-md flex items-center justify-center gap-2"><i class="fas fa-envelope"></i> Email</button></div>
                     </div>
                 </form>
             </div>
@@ -115,50 +186,52 @@
     <!-- Footer -->
     <footer class="bg-gray-900 text-white pt-20 pb-10">
         <div class="container mx-auto px-6">
-            <div class="grid md:grid-cols-4 gap-12 mb-16 border-b border-gray-800 pb-12">
-                <div class="md:col-span-2">
-                    <h3 class="text-3xl font-serif font-bold mb-6 text-white">Imayam Tours</h3>
-                    <p class="text-gray-400 leading-relaxed max-w-sm mb-6">Your trusted partner in crafting unforgettable travel memories across India.</p>
-                    <div class="flex space-x-4">
-                        <a href="https://www.facebook.com/profile.php?id=100087649875295" target="_blank" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-orange-500 transition-colors"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://youtube.com/@imayamtours" target="_blank" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-orange-500 transition-colors"><i class="fab fa-youtube"></i></a>
-                        <a href="https://www.instagram.com/_.imayam_tours._" target="_blank" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-orange-500 transition-colors"><i class="fab fa-instagram"></i></a>
-                    </div>
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6 text-center md:text-left">
+                <div class="flex items-center gap-3">
+                    <img src="cassets/logo.webp" alt="Logo" class="h-10 w-10 rounded-full bg-white/10 p-1">
+                    <span class="text-2xl font-serif font-bold">Imayam Tours</span>
                 </div>
-                <div>
-                    <h4 class="text-lg font-bold mb-6 text-orange-500">Quick Links</h4>
-                    <ul class="space-y-4">
-                        <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
-                        <li><a href="tours.html" class="text-gray-400 hover:text-white transition-colors">Destinations</a></li>
-                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition-colors">Contact Us</a></li>
-                    </ul>
+                <div class="flex flex-wrap justify-center gap-6 text-sm text-gray-400">
+                    <a href="index.html" class="hover:text-white transition-colors">Home</a>
+                    <a href="tours.html" class="hover:text-white transition-colors">Destinations</a>
+                    <a href="contact.html" class="hover:text-white transition-colors">Contact</a>
+                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
                 </div>
-                <div>
-                    <h4 class="text-lg font-bold mb-6 text-orange-500">Legal</h4>
-                    <ul class="space-y-4">
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Terms of Service</a></li>
-                    </ul>
+                <div class="flex gap-6 text-gray-400">
+                    <a href="https://www.facebook.com/profile.php?id=100087649875295" target="_blank" class="hover:text-white text-xl"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://youtube.com/@imayamtours" target="_blank" class="hover:text-white text-xl"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.instagram.com/_.imayam_tours._" target="_blank" class="hover:text-white text-xl"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
-            <div class="text-center text-gray-500 text-sm">&copy; 2025 Imayam Tours. All Rights Reserved. Designed with <i class="fas fa-heart text-red-500"></i> in India.</div>
+            <div class="border-t border-gray-800 mt-10 pt-8 text-center text-gray-500 text-sm">
+                &copy; 2025 Imayam Tours. Designed by <a href="https://codux.fun" target="_blank" class="text-orange-500 hover:underline">codux.fun</a>
+            </div>
         </div>
     </footer>
 
+    <!-- Scripts -->
+    <script src="js/script.js"></script>
     <script>
-        // List of tours for dropdown (Shared Data)
-        const tourNames = ["Chennai", "Ooty", "Kodaikanal", "Valparai", "Yercaud", "Kanyakumari", "Dhanushkodi", "Temples of Tamil Nadu", "Velankanni Church", "Jumma Masjid, Kilakarai", "Munnar", "Wayanad", "Kochi", "Varkala", "Vagamon & Thekkady", "Padmanabhaswamy Temple", "Coorg", "Mysore", "Chikmagalur", "Gokarna", "Murdeshwar", "Shimla", "Manali", "Kullu", "Goa", "Andaman", "Jammu - Gulmarg", "Sikkim", "Darjeeling", "Agra", "Rajasthan", "Kashi"];
+        // Mobile Menu Logic
+        const mobileBtn = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const icon = mobileBtn.querySelector('i');
 
-        // Init Form
-        const select = document.getElementById('contact-location');
-        tourNames.forEach(name => {
-            const opt = document.createElement('option'); opt.value = name; opt.innerText = name; select.appendChild(opt);
+        mobileBtn.addEventListener('click', () => {
+            const isHidden = mobileMenu.classList.contains('hidden');
+            
+            if (isHidden) {
+                mobileMenu.classList.remove('hidden');
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+                document.body.style.overflow = 'hidden'; 
+            } else {
+                mobileMenu.classList.add('hidden');
+                icon.classList.add('fa-bars');
+                icon.classList.remove('fa-times');
+                document.body.style.overflow = '';
+            }
         });
-
-        // Pre-select from URL params
-        const urlParams = new URLSearchParams(window.location.search);
-        const dest = urlParams.get('dest');
-        if(dest) select.value = dest;
 
         // Map Modal Logic
         function openMapModal() {
@@ -169,11 +242,20 @@
             document.getElementById('mapModalContent').classList.remove('scale-100', 'opacity-100'); document.getElementById('mapModalContent').classList.add('scale-95', 'opacity-0');
             setTimeout(() => { document.getElementById('mapModal').classList.add('hidden'); }, 300);
         }
-        document.getElementById('mapModal').addEventListener('click', (e) => { if(e.target.id === 'mapModal') closeMapModal(); });
+        
+        // Slider Logic
+        document.getElementById('contact-days').addEventListener('input', function() { document.getElementById('daysValue').textContent = this.value; });
+        document.getElementById('contact-budget').addEventListener('input', function() { document.getElementById('budgetValue').textContent = parseInt(this.value).toLocaleString(); });
 
-        // Contact Logic
+        // Contact Form Actions
         function getContactData() {
-            return { name: document.getElementById('contact-name').value, phone: document.getElementById('contact-phone').value, days: document.getElementById('contact-days').value, budget: document.getElementById('contact-budget').value, loc: document.getElementById('contact-location').value };
+            return { 
+                name: document.getElementById('contact-name').value, 
+                phone: document.getElementById('contact-phone').value, 
+                days: document.getElementById('contact-days').value, 
+                budget: document.getElementById('contact-budget').value, 
+                loc: document.getElementById('contact-location').value 
+            };
         }
         function sendWhatsApp() {
             const data = getContactData(); if(!data.name || !data.phone) { alert("Please enter Name and Phone."); return; }
@@ -185,8 +267,6 @@
             const subject = `Trip Inquiry: ${data.name}`; const body = `Name: ${data.name}%0D%0AContact: ${data.phone}%0D%0ADestination: ${data.loc}%0D%0ADuration: ${data.days} days%0D%0ABudget: ${data.budget}`;
             window.location.href = `mailto:toursimayam@gmail.com?subject=${subject}&body=${body}`;
         }
-        
-        document.getElementById('mobile-menu-btn').addEventListener('click', () => { document.getElementById('mobile-menu').classList.toggle('hidden'); });
     </script>
 </body>
 </html>
