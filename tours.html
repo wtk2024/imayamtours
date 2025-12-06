@@ -3,231 +3,148 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Our Destinations | Imayam Tours</title>
-    
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Explore our wide range of tour packages. From spiritual Tamil Nadu trails to adventure in Himachal and leisure in Goa. Book your perfect Indian holiday today." />
-    <meta name="keywords" content="Ooty Kodaikanal Tour, Kerala Tour Packages, Shimla Manali Trip, Spiritual Tourism Tamil Nadu, Andaman Nicobar Holidays, Rajasthan Desert Safari, Temple Tours South India, Imayam Tours Packages" />
+
+    <!-- Primary SEO Meta Tags -->
+    <title>Our Tours | Imayam Tours | Explore India Tour Packages</title>
+    <meta name="description" content="Browse our wide range of tour packages for India's best destinations. Find tours for Kerala, Goa, Himachal, Rajasthan, and more. Book your perfect holiday with Imayam Tours." />
+    <meta name="keywords" content="India tour packages, holiday packages, Kerala tours, Goa packages, Himachal Pradesh trips, Rajasthan travel, South India tourism, North India tours" />
+    <meta name="author" content="Imayam Tours" />
+    <link rel="canonical" href="https://www.imayamtours.com/tours.html" />
     <meta name="robots" content="index, follow" />
-    
-    <!-- Tailwind CSS -->
+
+    <!-- Open Graph / Facebook Meta Tags -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.imayamtours.com/tours.html" />
+    <meta property="og:title" content="Our Tours | Imayam Tours | Explore India Tour Packages" />
+    <meta property="og:description" content="Browse our wide range of tour packages for India's best destinations. Find your perfect holiday today." />
+    <meta property="og:image" content="https://www.imayamtours.com/cassets/goa.webp" />
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://www.imayamtours.com/tours.html" />
+    <meta name="twitter:title" content="Our Tours | Imayam Tours | Explore India Tour Packages" />
+    <meta name="twitter:description" content="Browse our wide range of tour packages for India's best destinations. Find your perfect holiday today." />
+    <meta name="twitter:image" content="https://www.imayamtours.com/cassets/goa.webp" />
+
+    <!-- Favicon and Theme -->
+    <link rel="icon" href="cassets/logo.webp" type="image/webp" />
+    <link rel="apple-touch-icon" href="cassets/logo.webp" />
+    <meta name="theme-color" content="#F97316">
+
+    <!-- Styles and Fonts -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-    <!-- Custom Animations -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <link rel="stylesheet" href="css/styles.css" />
-    
+
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: { sans: ['Lato', 'sans-serif'], serif: ['Playfair Display', 'serif'] },
-                    colors: { orange: { 50: '#fff7ed', 100: '#ffedd5', 500: '#f97316', 600: '#ea580c' }, teal: { 50: '#f0fdfa', 100: '#ccfbf1', 600: '#0d9488', 800: '#115e59', 900: '#134e4a' } }
-                }
-            }
-        }
+      // Set theme on initial load
+      if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
     </script>
-    <style>
-        body { background-color: #fff7ed; }
-        
-        /* Glass Navbar styling */
-        .nav-glass { 
-            background: rgba(255, 255, 255, 0.90); 
-            backdrop-filter: blur(12px); 
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); 
-            padding: 0.75rem 0; 
-            transition: all 0.3s ease;
-        }
-        .nav-text-dark { color: #1f2937; }
-
-        /* Hero Image Styling */
-        .tours-hero {
-            background-image: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.3)), url('cassets/goa.webp');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-        }
-        
-        /* Mobile menu animation */
-        #mobile-menu {
-            transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
-        }
-        .menu-hidden { opacity: 0; visibility: hidden; pointer-events: none; }
-        .menu-visible { opacity: 1; visibility: visible; pointer-events: auto; }
-        
-        /* Modal Transition */
-        #tourModal { transition: opacity 0.3s ease-in-out; }
-        .scale-95 { transform: scale(0.95); }
-        .scale-100 { transform: scale(1); }
-        .opacity-0 { opacity: 0; }
-        .opacity-100 { opacity: 1; }
-    </style>
 </head>
-<body class="text-gray-800 antialiased min-h-screen flex flex-col">
+<body class="bg-gray-50 text-gray-700 font-sans dark:bg-gray-900 dark:text-gray-300">
 
-    <!-- Navigation -->
-    <nav id="navbar" class="fixed w-full z-50 nav-glass">
-        <div class="container mx-auto px-6 flex justify-between items-center">
-            <!-- Logo -->
-            <a href="index.html" class="text-2xl font-bold flex items-center gap-2 cursor-pointer nav-text-dark group" id="nav-logo">
-                <img src="cassets/logo.webp" alt="Logo" class="h-10 w-10 md:h-12 md:w-12 object-contain rounded-full bg-white/20 p-1 group-hover:scale-105 transition-transform duration-300">
-                <span class="font-serif tracking-wide group-hover:text-orange-600 transition-colors">Imayam Tours</span>
+    <!-- Header & Navbar -->
+    <header class="bg-white/80 backdrop-blur-md shadow-sm fixed top-0 left-0 right-0 z-50 dark:bg-gray-900/80">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-3">
+                <img src="cassets/logo.webp" alt="Imayam Tours Logo" class="h-14"/>
+                <span class="text-3xl font-bold text-gray-800 tracking-wider dark:text-white">Imayam Tours</span>
             </a>
-
-            <!-- Desktop Menu -->
-            <div class="hidden md:flex items-center space-x-8">
-                <a href="index.html" class="font-medium hover:text-orange-500 transition-colors nav-text-dark">Home</a>
-                <a href="tours.html" class="font-bold text-orange-600 transition-colors nav-text-dark border-b-2 border-orange-500">Destinations</a>
-                <a href="contact.html" class="font-medium hover:text-orange-500 transition-colors nav-text-dark">Contact</a>
-                <a href="contact.html" class="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-full font-bold shadow-lg transition-transform hover:scale-105 flex items-center gap-2">
-                    Book Now <i class="fas fa-paper-plane text-xs"></i>
-                </a>
+            <div class="hidden lg:flex items-center space-x-10">
+                <a href="index.html" class="text-gray-600 hover:text-orange-500 transition duration-300 text-lg dark:text-gray-300 dark:hover:text-orange-400">Home</a>
+                <a href="tours.html" class="text-orange-500 font-semibold text-lg dark:text-orange-400">Tours</a>
+                <a href="contact.html" class="text-gray-600 hover:text-orange-500 transition duration-300 text-lg dark:text-gray-300 dark:hover:text-orange-400">Contact</a>
             </div>
-
-            <!-- Hamburger Button -->
-            <button id="mobile-menu-button" class="md:hidden z-50 text-gray-800 text-3xl focus:outline-none p-2 transition-colors hover:text-orange-500">
-                <i class="fas fa-bars"></i>
-            </button>
-        </div>
-        
+            <div class="flex items-center space-x-4">
+                <button id="theme-toggle" class="text-gray-600 dark:text-gray-300 hover:text-orange-500 dark:hover:text-orange-400 text-xl">
+                    <i class="fas fa-sun" id="theme-toggle-light-icon"></i>
+                    <i class="fas fa-moon hidden" id="theme-toggle-dark-icon"></i>
+                </button>
+                <a href="contact.html" class="hidden lg:block bg-orange-500 text-white px-8 py-3 rounded-full hover:bg-orange-600 transition duration-300 transform hover:scale-105">Book Now</a>
+                <button id="mobile-menu-button" class="lg:hidden text-2xl text-gray-700 dark:text-gray-300">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </nav>
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white/98 backdrop-blur-md shadow-xl py-6 flex flex-col items-center justify-center space-y-6 border-t animate-fade-in h-screen">
-            <a href="index.html" class="text-gray-800 text-2xl font-serif font-medium hover:text-orange-500 transition-colors w-full text-center py-2">Home</a>
-            <a href="tours.html" class="text-orange-600 text-2xl font-serif font-bold w-full text-center py-2">Destinations</a>
-            <a href="contact.html" class="text-gray-800 text-2xl font-serif font-medium hover:text-orange-500 transition-colors w-full text-center py-2">Contact</a>
-            <a href="contact.html" class="mt-8 bg-orange-500 text-white px-10 py-3 rounded-full text-xl font-bold shadow-md hover:bg-orange-600">Book Now</a>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <header class="tours-hero h-[60vh] flex items-center justify-center text-center px-4 pt-20 relative">
-        <div class="max-w-4xl mx-auto space-y-4 animate-fade-in-up relative z-10">
-            <div class="inline-block mb-2">
-                <span class="text-orange-300 tracking-[0.3em] uppercase text-xs md:text-sm font-bold bg-black/40 px-4 py-1.5 rounded-full backdrop-blur-sm border border-white/10">Incredible India</span>
-            </div>
-            <h1 class="text-5xl md:text-7xl font-bold text-white font-serif drop-shadow-lg leading-tight">
-                Explore Our <br/> <span class="italic text-orange-400">Curated</span> Journeys
-            </h1>
-            <p class="text-lg md:text-xl text-gray-100 max-w-2xl mx-auto font-light leading-relaxed">
-                From the misty hills of the North to the spiritual temples of the South. Find the package that speaks to your soul.
-            </p>
+        <div id="mobile-menu" class="hidden lg:hidden px-6 pb-4">
+            <a href="index.html" class="block py-2 text-gray-600 dark:text-gray-300">Home</a>
+            <a href="tours.html" class="block py-2 text-orange-500 dark:text-orange-400 font-semibold">Tours</a>
+            <a href="contact.html" class="block py-2 text-gray-600 dark:text-gray-300">Contact</a>
+            <a href="contact.html" class="block mt-2 bg-orange-500 text-white px-6 py-2 rounded-full text-center">Book Now</a>
         </div>
     </header>
 
     <!-- Main Content -->
-    <main class="flex-grow py-20 bg-orange-50/50">
-        <div class="container mx-auto px-6">
-            <!-- Filter / Intro Text -->
-            <div class="text-center mb-16 max-w-3xl mx-auto">
-                <div class="w-16 h-1 bg-orange-500 mx-auto rounded-full mb-6"></div>
-                <p class="text-gray-600 text-lg">
-                    We have meticulously crafted packages for every type of traveler. Whether you seek adventure, spiritual solace, or a relaxing beach getaway, your perfect trip begins here.
-                </p>
+    <main class="pt-20">
+        <!-- Tours Header -->
+        <section class="bg-cover bg-center py-32" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('cassets/goa.webp');">
+            <div class="container mx-auto px-6 text-center text-white animate-fade-in">
+                <h1 class="text-5xl md:text-7xl font-bold mb-4">Explore Our Tours</h1>
+                <p class="text-lg md:text-xl text-gray-200">From serene hill stations to vibrant beaches, we have it all!</p>
             </div>
+        </section>
 
-            <!-- Dynamic Tours Container (CRITICAL ID for script.js) -->
-            <div id="tour-sections" class="space-y-20 min-h-[400px]">
-                <!-- Loading State placeholder -->
-                <div class="flex justify-center items-center py-20">
-                    <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-orange-500"></div>
-                </div>
+        <!-- Tour Sections -->
+        <section class="py-24">
+            <div class="container mx-auto px-6">
+                <!-- Tour sections will be dynamically generated here -->
+                <div id="tour-sections"></div>
             </div>
-        </div>
+        </section>
     </main>
 
-    <!-- Tour Details Modal (CRITICAL IDs for script.js) -->
-    <div id="tourModal" class="fixed inset-0 bg-black/70 z-[100] hidden flex items-center justify-center p-4 backdrop-blur-sm">
-        <div id="modalContent" class="bg-white rounded-2xl shadow-2xl p-8 max-w-lg w-full relative transform scale-95 opacity-0 transition-all duration-300 border-t-4 border-orange-500">
-            <div class="transform transition-all duration-300"> 
-                <div class="flex justify-between items-start mb-6 border-b border-gray-100 pb-4">
-                    <div>
-                        <h2 id="modalTitle" class="text-3xl font-bold text-gray-800 font-serif">Tour Details</h2>
-                        <span class="text-sm text-gray-500">Overview & Highlights</span>
-                    </div>
-                    <button id="closeModal" class="text-gray-400 hover:text-red-500 transition-colors text-2xl bg-gray-100 w-10 h-10 rounded-full flex items-center justify-center hover:rotate-90 duration-300">
-                        <i class="fas fa-times"></i>
-                    </button>
-                </div>
-                <div id="modalBody" class="text-gray-600 space-y-5 text-lg">
-                    <!-- Dynamic Content injected by script.js -->
-                </div>
+    <!-- Tour Modal -->
+    <div id="tourModal" class="fixed inset-0 bg-black/60 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-2xl p-8 max-w-lg w-full transform transition-all duration-300 scale-95 opacity-0">
+            <div class="flex justify-between items-center mb-6">
+                <h2 id="modalTitle" class="text-3xl font-bold text-gray-800 dark:text-white">Tour Details</h2>
+                <button id="closeModal" class="text-3xl text-gray-500 hover:text-gray-800 dark:hover:text-white transition-colors">×</button>
+            </div>
+            <div id="modalBody">
+                <!-- Dynamic content here -->
             </div>
         </div>
     </div>
-
+    
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white pt-20 pb-8 border-t border-gray-800">
-        <div class="container mx-auto px-6">
-            <div class="grid md:grid-cols-4 gap-12 mb-16 pb-12 border-b border-gray-800">
-                <div class="md:col-span-2 space-y-6">
-                    <div class="flex items-center gap-3">
-                        <img src="cassets/logo.webp" alt="Imayam Tours" class="h-12 w-12 rounded-full bg-white/10 p-1">
-                        <h3 class="text-3xl font-serif font-bold text-white">Imayam Tours</h3>
-                    </div>
-                    <p class="text-gray-400 leading-relaxed max-w-sm">
-                        Your trusted partner in crafting unforgettable travel memories across India. Licensed and approved travel agents specializing in South Indian heritage.
-                    </p>
-                    <div class="flex space-x-4">
-                        <a href="https://www.facebook.com/profile.php?id=100087649875295" target="_blank" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-orange-500 hover:text-white transition-all transform hover:-translate-y-1"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://youtube.com/@imayamtours" target="_blank" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-red-600 hover:text-white transition-all transform hover:-translate-y-1"><i class="fab fa-youtube"></i></a>
-                        <a href="https://www.instagram.com/_.imayam_tours._" target="_blank" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-pink-600 hover:text-white transition-all transform hover:-translate-y-1"><i class="fab fa-instagram"></i></a>
-                    </div>
+    <footer class="bg-gray-800 text-white dark:bg-black">
+        <div class="container mx-auto px-6 py-16">
+            <div class="grid md:grid-cols-3 gap-10">
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">Imayam Tours</h3>
+                    <p class="text-gray-400">Your trusted partner in crafting unforgettable travel memories across India.</p>
                 </div>
                 <div>
-                    <h4 class="text-lg font-bold mb-6 text-orange-500 tracking-wide uppercase text-sm">Quick Links</h4>
-                    <ul class="space-y-3">
-                        <li><a href="index.html" class="text-gray-400 hover:text-white hover:translate-x-2 transition-all inline-block">Home</a></li>
-                        <li><a href="tours.html" class="text-white font-medium hover:translate-x-2 transition-all inline-block">Destinations</a></li>
-                        <li><a href="contact.html" class="text-gray-400 hover:text-white hover:translate-x-2 transition-all inline-block">Contact Us</a></li>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul>
+                        <li class="mb-2"><a href="index.html" class="text-gray-400 hover:text-white transition duration-300">Home</a></li>
+                        <li class="mb-2"><a href="tours.html" class="text-gray-400 hover:text-white transition duration-300">Tours</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition duration-300">Contact</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="text-lg font-bold mb-6 text-orange-500 tracking-wide uppercase text-sm">Legal</h4>
-                    <ul class="space-y-3">
-                        <li><a href="#" class="text-gray-400 hover:text-white hover:translate-x-2 transition-all inline-block">Privacy Policy</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white hover:translate-x-2 transition-all inline-block">Terms of Service</a></li>
-                    </ul>
+                    <h3 class="text-lg font-semibold mb-4">Connect With Us</h3>
+                    <div class="flex space-x-5">
+                        <a href="https://www.facebook.com/profile.php?id=100087649875295&mibextid=ZbWKwL" class="text-2xl text-gray-400 hover:text-orange-500 transition duration-300" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://youtube.com/@imayamtours?si=nfMT5Dh-eYtAksla" class="text-2xl text-gray-400 hover:text-orange-500 transition duration-300" target="_blank"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.instagram.com/_.imayam_tours._?utm_source=qr&igsh=MWlvcngwc3hiZXk4Zw==" class="text-2xl text-gray-400 hover:text-orange-500 transition duration-300" target="_blank"><i class="fab fa-instagram"></i></a>
+                    </div>
                 </div>
             </div>
-            <div class="flex flex-col md:flex-row justify-between items-center text-gray-500 text-sm">
-                <p>&copy; 2025 Imayam Tours. All Rights Reserved.</p>
-                <p class="mt-2 md:mt-0 flex items-center">
-                    Designed with <i class="fas fa-heart text-red-500 animate-pulse mx-2"></i> by 
-                    <a href="https://codux.fun" target="_blank" class="text-orange-500 hover:text-orange-400 font-bold hover:underline transition-colors ml-1">codux.fun</a>
-                </p>
+            <div class="mt-12 border-t border-gray-700 dark:border-gray-800 pt-8 text-center text-gray-500">
+                <p>© 2025 Imayam Tours | All Rights Reserved</p>
             </div>
         </div>
     </footer>
 
-    <!-- Scripts -->
     <script src="js/script.js"></script>
-    <script>
-        // Mobile Menu Logic
-        const mobileBtn = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const icon = mobileBtn.querySelector('i');
-
-        mobileBtn.addEventListener('click', () => {
-            const isHidden = mobileMenu.classList.contains('hidden');
-            
-            if (isHidden) {
-                mobileMenu.classList.remove('hidden');
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-                document.body.style.overflow = 'hidden'; 
-            } else {
-                mobileMenu.classList.add('hidden');
-                icon.classList.add('fa-bars');
-                icon.classList.remove('fa-times');
-                document.body.style.overflow = '';
-            }
-        });
-    </script>
 </body>
 </html>
